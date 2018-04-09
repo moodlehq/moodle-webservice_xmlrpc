@@ -14,16 +14,33 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-
 /**
- * Strings for component 'webservice_xmlrpc', language 'en', branch 'MOODLE_20_STABLE'
+ * Privacy provider implementation for webservice_xmlrpc.
  *
  * @package    webservice_xmlrpc
- * @category   string
- * @copyright  2010 Petr Skodak
+ * @copyright  2018 Mihail Geshoski <mihail@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'XML-RPC protocol';
-$string['privacy:metadata'] = 'The XML-RPC protocol plugin does not store any personal data.';
-$string['xmlrpc:use'] = 'Use XML-RPC protocol';
+namespace webservice_xmlrpc\privacy;
+
+defined('MOODLE_INTERNAL') || die();
+
+/**
+ * Privacy provider implementation for webservice_xmlrpc.
+ *
+ * @copyright  2018 Mihail Geshoski <mihail@moodle.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
+
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return  string
+     */
+    public static function get_reason() : string {
+        return 'privacy:metadata';
+    }
+}
