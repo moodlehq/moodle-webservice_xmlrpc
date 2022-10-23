@@ -23,6 +23,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+namespace webservice_xmlrpc;
+
 defined('MOODLE_INTERNAL') || die();
 
 global $CFG;
@@ -35,8 +37,10 @@ require_once($CFG->dirroot . '/webservice/xmlrpc/locallib.php');
  * @category   test
  * @copyright  2016 Andrew Nicols <andrew@nicols.co.uk>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
+ * @covers \webservice_xmlrpc_server
  */
-class xmlrpc_server_test extends advanced_testcase {
+class xmlrpc_server_test extends \advanced_testcase {
 
     /**
      * Setup.
@@ -89,9 +93,10 @@ class xmlrpc_server_test extends advanced_testcase {
         // This valid webservice call has one required param ('component'), and one optional param ('lang').
         $validmethod = '<methodName>core_get_component_strings</methodName>';
         $requiredparams = '<params><param><value><string>moodle</string></value></param></params>';
-        $allparams = '<params><param><value><string>moodle</string></value></param><param><value><string>en</string></value>'
-                . '</param></params>';
-        $requiredparamsnonlatin = '<params><param><value><string>ᛞᛁᛞᛃᛟᚢᚲᚾᛟᚹᛈᚺᛈᛋᚢᛈᛈᛟᚱᛏᛋᚢᛏᚠ8ᚡᚨᚱᛁᚨᛒᛚᛖᚾᚨᛗᛖᛋ</string></value></param></params>';
+        $allparams = '<params><param><value><string>moodle</string></value></param><param><value><string>en</string></value>' .
+            '</param></params>';
+        $requiredparamsnonlatin = '<params><param><value><string>ᛞᛁᛞᛃᛟᚢᚲᚾᛟᚹᛈᚺᛈᛋᚢᛈᛈᛟᚱᛏᛋᚢᛏᚠ8ᚡᚨᚱᛁᚨᛒᛚᛖᚾᚨᛗᛖᛋ</string></value>' .
+            '</param></params>';
 
         return [
                 'Valid method, required params only' => [

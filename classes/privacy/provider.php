@@ -14,21 +14,13 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+namespace webservice_xmlrpc\privacy;
+
 /**
  * Privacy provider implementation for webservice_xmlrpc.
  *
  * @package    webservice_xmlrpc
- * @copyright  2018 Mihail Geshoski <mihail@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
-namespace webservice_xmlrpc\privacy;
-
-defined('MOODLE_INTERNAL') || die();
-
-/**
- * Privacy provider implementation for webservice_xmlrpc.
- *
+ * @category   privacy
  * @copyright  2018 Mihail Geshoski <mihail@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

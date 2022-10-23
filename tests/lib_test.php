@@ -36,6 +36,8 @@ require_once($CFG->dirroot . '/webservice/xmlrpc/lib.php');
  * @category   test
  * @copyright  2015 Jun Pataleta <jun@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
+ * @covers \webservice_xmlrpc_client
  */
 class lib_test extends \advanced_testcase {
 
@@ -202,7 +204,7 @@ class webservice_xmlrpc_client_mock extends \webservice_xmlrpc_client {
      * @param mixed $params Method parameters compatible with the method signature.
      * @return string
      */
-    public function encode_request($functionname, $params) {
+    public function encode_request($functionname, $params) { // phpcs:ignore Generic.CodeAnalysis.UselessOverridingMethod.Found
         return parent::encode_request($functionname, $params);
     }
 
@@ -212,7 +214,7 @@ class webservice_xmlrpc_client_mock extends \webservice_xmlrpc_client {
      * @param string $response
      * @return array
      */
-    public function decode_response($response) {
+    public function decode_response($response) { // phpcs:ignore Generic.CodeAnalysis.UselessOverridingMethod.Found
         return parent::decode_response($response);
     }
 }

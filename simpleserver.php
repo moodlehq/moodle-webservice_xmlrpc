@@ -14,7 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-
 /**
  * XML-RPC web service entry point. The authentication is done via username/password.
  *
@@ -30,6 +29,7 @@ define('NO_DEBUG_DISPLAY', true);
 
 define('WS_SERVER', true);
 
+// phpcs:ignore moodle.Files.RequireLogin.Missing
 require('../../config.php');
 require_once("$CFG->dirroot/webservice/xmlrpc/locallib.php");
 
@@ -40,5 +40,3 @@ if (!webservice_protocol_is_enabled('xmlrpc')) {
 $server = new webservice_xmlrpc_server(WEBSERVICE_AUTHMETHOD_USERNAME);
 $server->run();
 die;
-
-

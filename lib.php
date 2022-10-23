@@ -15,16 +15,6 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Moodle XML-RPC library
- *
- * @package    webservice_xmlrpc
- * @copyright  2009 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
-defined('MOODLE_INTERNAL') || die();
-
-/**
  * Moodle XML-RPC client
  *
  * @package    webservice_xmlrpc
@@ -125,7 +115,7 @@ class webservice_xmlrpc_client {
      */
     protected function decode_response($response) {
         // XMLRPC server in Moodle encodes response using function xmlrpc_encode_request() with method==null
-        // see {@link webservice_xmlrpc_server::prepare_response()} . We should use xmlrpc_decode_request() for decoding too.
+        // see {@see webservice_xmlrpc_server::prepare_response()} . We should use xmlrpc_decode_request() for decoding too.
         $method = null;
         $encoding = null;
         if (preg_match('/^<\?xml version="1.0" encoding="([^"]*)"\?>/', $response, $matches)) {

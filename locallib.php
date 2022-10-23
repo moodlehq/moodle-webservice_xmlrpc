@@ -14,7 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-
 /**
  * XML-RPC web service implementation classes and methods.
  *
@@ -22,6 +21,8 @@
  * @copyright  2009 Petr Skodak
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 require_once("$CFG->dirroot/webservice/lib.php");
 
@@ -179,7 +180,7 @@ class webservice_xmlrpc_server extends webservice_base_server {
             $faultcode = substr($faultcode, 0, 8);
 
             // Add the debuginfo to the exception message if debuginfo must be returned.
-            if (debugging() and isset($ex->debuginfo)) {
+            if (debugging() && isset($ex->debuginfo)) {
                 $error .= ' | DEBUG INFO: ' . $ex->debuginfo . ' | ERRORCODE: ' . $ex->errorcode;
             } else {
                 $error .= ' | ERRORCODE: ' . $ex->errorcode;

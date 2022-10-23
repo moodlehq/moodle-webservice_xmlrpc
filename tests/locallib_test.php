@@ -22,6 +22,7 @@
  * @copyright  2016 Cameron Ball
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
 namespace webservice_xmlrpc;
 
 defined('MOODLE_INTERNAL') || die();
@@ -36,6 +37,8 @@ require_once($CFG->dirroot . '/webservice/xmlrpc/locallib.php');
  * @category   test
  * @copyright  2016 Cameron Ball
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
+ * @covers \webservice_xmlrpc_server
  */
 class locallib_test extends \advanced_testcase {
 
@@ -142,21 +145,31 @@ class locallib_test extends \advanced_testcase {
      * @return array of testcases
      */
     public function generate_error_provider() {
+        $glyphs = 'P̓͊r̨ͧa͚ͬẏ͎e͐̉rͮ̓ ͨ́n̗͗o͛̂t͂̌ ̊̆fͤͦo͒̿uͥͭń̇d̿͒';
         return [
             'Standard exception with default faultcode' => [
                 new \Exception(),
                 null,
-                '<?xml version="1.0" encoding="UTF-8"?><methodResponse><fault><value><struct><member><name>faultCode</name><value><int>404</int></value></member><member><name>faultString</name><value><string/></value></member></struct></value></fault></methodResponse>'
+                '<?xml version="1.0" encoding="UTF-8"?><methodResponse><fault><value><struct>' .
+                '<member><name>faultCode</name><value><int>404</int></value></member>' .
+                '<member><name>faultString</name><value><string/></value></member>' .
+                '</struct></value></fault></methodResponse>'
             ],
             'Standard exception with default faultcode and exception content' => [
                 new \Exception('PC LOAD LETTER'),
                 null,
-                '<?xml version="1.0" encoding="UTF-8"?><methodResponse><fault><value><struct><member><name>faultCode</name><value><int>404</int></value></member><member><name>faultString</name><value><string>PC LOAD LETTER</string></value></member></struct></value></fault></methodResponse>'
+                '<?xml version="1.0" encoding="UTF-8"?><methodResponse><fault><value><struct>' .
+                '<member><name>faultCode</name><value><int>404</int></value></member>' .
+                '<member><name>faultString</name><value><string>PC LOAD LETTER</string></value></member>' .
+                '</struct></value></fault></methodResponse>'
             ],
             'Standard exception with really messed up non-Latin glyphs' => [
-                new \Exception('P̫̬̳̫̓͊̇r̨͎̜ͧa͚̬̙̺͎̙ͬẏ͎̲̦̲e̶̞͎͙̻͐̉r͙̙ͮ̓̈ͧ̔̃ ̠ͨ́ͭ̎̎̇̿n̗̥̞͗o̼̖͛̂̒̿ͮ͘t̷̞͎̘̘̝̥̲͂̌ͭ ͕̹͚̪͖̖̊̆́̒ͫ̓̀fͤͦͭͥ͊ͩo̼̱̻̹͒̿͒u̡͕̞͕̜̠͕ͥͭ̈̄̈́͐ń̘̼̇͜d̸̰̻͎͉̱̰̥̿͒'),
+                new \Exception($glyphs),
                 null,
-                '<?xml version="1.0" encoding="UTF-8"?><methodResponse><fault><value><struct><member><name>faultCode</name><value><int>404</int></value></member><member><name>faultString</name><value><string>P̫̬̳̫̓͊̇r̨͎̜ͧa͚̬̙̺͎̙ͬẏ͎̲̦̲e̶̞͎͙̻͐̉r͙̙ͮ̓̈ͧ̔̃ ̠ͨ́ͭ̎̎̇̿n̗̥̞͗o̼̖͛̂̒̿ͮ͘t̷̞͎̘̘̝̥̲͂̌ͭ ͕̹͚̪͖̖̊̆́̒ͫ̓̀fͤͦͭͥ͊ͩo̼̱̻̹͒̿͒u̡͕̞͕̜̠͕ͥͭ̈̄̈́͐ń̘̼̇͜d̸̰̻͎͉̱̰̥̿͒</string></value></member></struct></value></fault></methodResponse>'
+                '<?xml version="1.0" encoding="UTF-8"?><methodResponse><fault><value><struct>' .
+                '<member><name>faultCode</name><value><int>404</int></value></member>' .
+                '<member><name>faultString</name><value><string>' . $glyphs . '</string></value></member>' .
+                '</struct></value></fault></methodResponse>'
             ]
         ];
     }
