@@ -1,0 +1,7 @@
+<COMPATIBILITY_MATRIX>
+  <PLUGIN name="webservice_xmlrpc">
+    <PHP_EXTENSIONS>
+      <PHP_EXTENSION name="xmlrpc" level="required" />
+    </PHP_EXTENSIONS>
+  </PLUGIN>
+</COMPATIBILITY_MATRIX>
