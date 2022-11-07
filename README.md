@@ -55,4 +55,5 @@ No roadmap right now.
 Release history
 ---------------
 
+- 20221107 - 1.0.1 - Adjusted to require 20221106 (removed from core) or later.
 - 20221026 - 1.0.0 - First release published as standalone plugin.
