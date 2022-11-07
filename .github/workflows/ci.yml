@@ -28,25 +28,24 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # TODO: Change this to master, once MDL-76052 is upstream.
           - php: 8.0
-            moodle-branch: MDL-76052
+            moodle-branch: master
             database: pgsql
             # The following line is only needed if you're going to run php8 jobs and your
             # plugin needs xmlrpc services.
             extensions: xmlrpc-beta
-            #- php: 8.0
-            #moodle-branch: master
-            #database: mariadb
+          - php: 8.0
+            moodle-branch: master
+            database: mariadb
             # The following line is only needed if you're going to run php8 jobs and your
             # plugin needs xmlrpc services.
-            #extensions: xmlrpc-beta
-            #- php: 7.4
-            #moodle-branch: master
-            #database: pgsql
-            #- php: 7.4
-            #moodle-branch: main
-            #database: mariadb
+            extensions: xmlrpc-beta
+          - php: 7.4
+            moodle-branch: master
+            database: pgsql
+          - php: 7.4
+            moodle-branch: master
+            database: mariadb
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
@@ -71,8 +70,7 @@ jobs:
 
       - name: Install moodle-plugin-ci
         run: |
-          # TODO: Change to moodle/moodle.git once MDL-76052 is upstream.
-          moodle-plugin-ci install --plugin ./plugin --db-host=127.0.0.1 --repo=https://github.com/stronk7/moodle.git
+          moodle-plugin-ci install --plugin ./plugin --db-host=127.0.0.1 --repo=https://github.com/moodle/moodle.git
         env:
           DB: ${{ matrix.database }}
           MOODLE_BRANCH: ${{ matrix.moodle-branch }}
