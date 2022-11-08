@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->release   = '1.0.1';
-$plugin->version   = 2022110700;          // The current plugin version (Date: YYYYMMDDXX).
+$plugin->release   = '1.0.2';
+$plugin->version   = 2022110800;          // The current plugin version (Date: YYYYMMDDXX).
 $plugin->requires  = 2022110600;          // Requires this Moodle version (4.1dev, when removed from core, or later).
 $plugin->component = 'webservice_xmlrpc'; // Full name of the plugin (used for diagnostics).
