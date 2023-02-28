@@ -72,9 +72,16 @@ class locallib_test extends \advanced_testcase {
         $rcm = $rc->getMethod('prepare_response');
         $rcm->setAccessible(true);
 
+        if (class_exists('\core_external\external_value')) {
+            $evalue = new \core_external\external_value(PARAM_RAW, $returnsdesc, VALUE_OPTIONAL);
+        } else {
+            // TODO: Remove this branch condition once Moodle 4.1 is out of support.
+            $evalue = new \external_value(PARAM_RAW, $returnsdesc, VALUE_OPTIONAL);
+        }
         $func = $rc->getProperty('function');
         $func->setAccessible(true);
-        $func->setValue($server, (object) ['returns_desc' => new \external_value(PARAM_RAW, $returnsdesc, VALUE_OPTIONAL)]);
+
+        $func->setValue($server, (object) ['returns_desc' => $evalue]);
 
         $ret = $rc->getProperty('returns');
         $ret->setAccessible(true);
