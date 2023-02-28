@@ -29,20 +29,20 @@ jobs:
       matrix:
         include:
           # Highest php versions supported by each branch (with master always being tested twice).
-          # TODO: Enable when master (4.2dev) supports php81
-          #- php: 8.1
-          #  moodle-branch: master
-          #  database: pgsql
-          #  # The following line is only needed if you're going to run php8 jobs and your
-          #  # plugin needs xmlrpc services.
-          #  extensions: xmlrpc-beta
-          #- php: 8.1
-          #  moodle-branch: master
-          #  database: mariadb
-          #  # The following line is only needed if you're going to run php8 jobs and your
-          #  # plugin needs xmlrpc services.
-          #  extensions: xmlrpc-beta
-          - php: 8.0
+          - php: 8.1
+            moodle-branch: master
+            database: pgsql
+            # The following line is only needed if you're going to run php8 jobs and your
+            # plugin needs xmlrpc services.
+            extensions: xmlrpc-beta
+          - php: 8.1
+            moodle-branch: master
+            database: mariadb
+            # The following line is only needed if you're going to run php8 jobs and your
+            # plugin needs xmlrpc services.
+            extensions: xmlrpc-beta
+
+          - php: 8.1
             moodle-branch: MOODLE_401_STABLE
             database: pgsql
             # The following line is only needed if you're going to run php8 jobs and your
@@ -62,6 +62,7 @@ jobs:
             # The following line is only needed if you're going to run php8 jobs and your
             # plugin needs xmlrpc services.
             extensions: xmlrpc-beta
+
           - php: 7.4
             moodle-branch: MOODLE_401_STABLE
             database: pgsql
