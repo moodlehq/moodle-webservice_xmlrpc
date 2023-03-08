@@ -14,6 +14,9 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+// phpcs:disable PHPCompatibility.FunctionUse.RemovedFunctions.xmlrpc_decode_requestRemoved
+// phpcs:disable PHPCompatibility.FunctionUse.RemovedFunctions.xmlrpc_encode_requestRemoved
+
 /**
  * XML-RPC web service implementation classes and methods.
  *
@@ -72,7 +75,12 @@ class webservice_xmlrpc_server extends webservice_base_server {
 
         // Decode the request to get the decoded parameters and the name of the method to be called.
         $decodedparams = xmlrpc_decode_request($rawpostdata, $methodname, 'UTF-8');
-        $methodinfo = external_api::external_function_info($methodname);
+        if (class_exists('\core_external\external_api')) {
+            $methodinfo = \core_external\external_api::external_function_info($methodname);
+        } else {
+            // TODO: Remove this branch condition once Moodle 4.1 is out of support.
+            $methodinfo = external_api::external_function_info($methodname);
+        }
         $methodparams = array_keys($methodinfo->parameters_desc->keys);
         $methodvariables = [];
 
@@ -104,7 +112,15 @@ class webservice_xmlrpc_server extends webservice_base_server {
     protected function prepare_response() {
         try {
             if (!empty($this->function->returns_desc)) {
-                $validatedvalues = external_api::clean_returnvalue($this->function->returns_desc, $this->returns);
+                if (class_exists('\core_external\external_api')) {
+                    $validatedvalues = \core_external\external_api::clean_returnvalue(
+                        $this->function->returns_desc,
+                        $this->returns
+                    );
+                } else {
+                    // TODO: Remove this branch condition once Moodle 4.1 is out of support.
+                    $validatedvalues = external_api::clean_returnvalue($this->function->returns_desc, $this->returns);
+                }
                 $encodingoptions = array(
                     "encoding" => "UTF-8",
                     "verbosity" => "no_white_space",

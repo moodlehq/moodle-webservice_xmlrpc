@@ -14,6 +14,9 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+// phpcs:disable PHPCompatibility.FunctionUse.RemovedFunctions.xmlrpc_decodeRemoved
+// phpcs:disable PHPCompatibility.FunctionUse.RemovedFunctions.xmlrpc_encode_requestRemoved
+// phpcs:disable PHPCompatibility.FunctionUse.RemovedFunctions.xmlrpc_is_faultRemoved
 /**
  * Unit tests for the XML-RPC web service.
  *
