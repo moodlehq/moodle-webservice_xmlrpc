@@ -29,19 +29,19 @@ jobs:
       matrix:
         include:
           # Highest php versions supported by each branch (with master always being tested twice).
-          - php: 8.1
+          - php: 8.2
             moodle-branch: master
             database: pgsql
             # The following line is only needed if you're going to run php8 jobs and your
             # plugin needs xmlrpc services.
             extensions: xmlrpc-beta
-          - php: 8.1
+          - php: 8.2
             moodle-branch: master
             database: mariadb
             # The following line is only needed if you're going to run php8 jobs and your
             # plugin needs xmlrpc services.
             extensions: xmlrpc-beta
-          - php: 8.1
+          - php: 8.2
             moodle-branch: MOODLE_402_STABLE
             database: mariadb
             # The following line is only needed if you're going to run php8 jobs and your
