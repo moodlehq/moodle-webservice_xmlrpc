@@ -25,13 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$capabilities = array(
+$capabilities = [
 
-    'webservice/xmlrpc:use' => array(
+    'webservice/xmlrpc:use' => [
         'captype' => 'read', // This may be considered read and write at the same time.
         'contextlevel' => CONTEXT_COURSE, // The context level should be probably CONTEXT_MODULE.
-        'archetypes' => array(
-        ),
-    ),
+        'archetypes' => [
+        ],
+    ],
 
-);
+];

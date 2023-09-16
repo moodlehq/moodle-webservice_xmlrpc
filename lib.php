@@ -61,7 +61,7 @@ class webservice_xmlrpc_client {
      * @return mixed The decoded XML RPC response.
      * @throws moodle_exception
      */
-    public function call($functionname, $params = array()) {
+    public function call($functionname, $params = []) {
         global $CFG;
         require_once($CFG->libdir . '/filelib.php');
 
@@ -72,12 +72,12 @@ class webservice_xmlrpc_client {
         $request = $this->encode_request($functionname, $params);
 
         // Set the headers.
-        $headers = array(
+        $headers = [
             'Content-Length' => strlen($request),
             'Content-Type' => 'text/xml; charset=utf-8',
             'Host' => $this->serverurl->get_host(),
             'User-Agent' => 'Moodle XML-RPC Client/1.0',
-        );
+        ];
 
         // Get the response.
         $response = download_file_content($this->serverurl->out(false), $headers, $request);
@@ -100,10 +100,10 @@ class webservice_xmlrpc_client {
      */
     protected function encode_request($functionname, $params) {
 
-        $outputoptions = array(
+        $outputoptions = [
             'encoding' => 'utf-8',
             'escaping' => 'markup',
-        );
+        ];
 
         // See MDL-53962 - needed for backwards compatibility on <= 3.0.
         $params = array_values($params);

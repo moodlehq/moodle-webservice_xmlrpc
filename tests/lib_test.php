@@ -186,7 +186,7 @@ class webservice_xmlrpc_client_mock extends \webservice_xmlrpc_client {
      * @return mixed The decoded XML RPC response.
      * @throws \moodle_exception
      */
-    public function call($functionname, $params = array()) {
+    public function call($functionname, $params = []) {
         // Get the response.
         $response = $this->mockresponse;
 
