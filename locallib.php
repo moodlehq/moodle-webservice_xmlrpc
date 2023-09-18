@@ -121,15 +121,17 @@ class webservice_xmlrpc_server extends webservice_base_server {
                     // TODO: Remove this branch condition once Moodle 4.1 is out of support.
                     $validatedvalues = external_api::clean_returnvalue($this->function->returns_desc, $this->returns);
                 }
-                $encodingoptions = [
-                    "encoding" => "UTF-8",
-                    "verbosity" => "no_white_space",
-                    // See MDL-54868.
-                    "escaping" => ["markup"]
-                ];
-                // We can now convert the response to the requested XML-RPC format.
-                $this->response = xmlrpc_encode_request(null, $validatedvalues, $encodingoptions);
+            } else if ($this->returns === null) {
+                $validatedvalues = $this->returns;
             }
+            $encodingoptions = [
+                "encoding" => "UTF-8",
+                "verbosity" => "no_white_space",
+                // See MDL-54868.
+                "escaping" => ["markup"],
+            ];
+            // We can now convert the response to the requested XML-RPC format.
+            $this->response = xmlrpc_encode_request(null, $validatedvalues, $encodingoptions);
         } catch (invalid_response_exception $ex) {
             $this->response = $this->generate_error($ex);
         }

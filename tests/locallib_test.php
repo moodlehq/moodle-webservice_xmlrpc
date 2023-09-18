@@ -134,15 +134,20 @@ class locallib_test extends \advanced_testcase {
                 'Ennyn Durin, Aran Moria: pedo mellon a minno',
                 'Mellon!',
                 '<?xml version="1.0" encoding="UTF-8"?><methodResponse><params><param><value><string>Mellon!</string></value>'
-                . '</param></params></methodResponse>'
+                . '</param></params></methodResponse>',
             ],
             'Description with non-Latin glyphs' => [
                 'What biscuits do you have?',
                 // V         Unicode 9!         V.
                 '😂🤵😂 𝒪𝓃𝓁𝓎 𝓉𝒽𝑒 𝒻𝒾𝓃𝑒𝓈𝓉 𝐼𝓉𝒶𝓁𝒾𝒶𝓃 𝒷𝒾𝓈𝒸𝓊𝒾𝓉𝓈 😂🤵😂',
                 '<?xml version="1.0" encoding="UTF-8"?><methodResponse><params><param><value><string>'
-                . '😂🤵😂 𝒪𝓃𝓁𝓎 𝓉𝒽𝑒 𝒻𝒾𝓃𝑒𝓈𝓉 𝐼𝓉𝒶𝓁𝒾𝒶𝓃 𝒷𝒾𝓈𝒸𝓊𝒾𝓉𝓈 😂🤵😂</string></value></param></params></methodResponse>'
-            ]
+                . '😂🤵😂 𝒪𝓃𝓁𝓎 𝓉𝒽𝑒 𝒻𝒾𝓃𝑒𝓈𝓉 𝐼𝓉𝒶𝓁𝒾𝒶𝓃 𝒷𝒾𝓈𝒸𝓊𝒾𝓉𝓈 😂🤵😂</string></value></param></params></methodResponse>',
+            ],
+            'Null returned data' => [
+                'Some desc is coming!',
+                null,
+               '<?xml version="1.0" encoding="UTF-8"?><methodResponse><params/></methodResponse>',
+            ],
         ];
     }
 

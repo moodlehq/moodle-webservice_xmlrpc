@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 The format of this change log follows the advice given at [Keep a CHANGELOG](http://keepachangelog.com).
 
 ## [Unreleased]
+### Fixed
+- Better behaviour when the external functions return null results, by providing and "acceptable" empty (xmlrpc-compliant) response.
 
 ## [1.0.3] - 2023-09-16
 ### Added
