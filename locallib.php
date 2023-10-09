@@ -207,14 +207,14 @@ class webservice_xmlrpc_server extends webservice_base_server {
 
         $fault = [
             'faultCode' => (int) $faultcode,
-            'faultString' => $error
+            'faultString' => $error,
         ];
 
         $encodingoptions = [
             "encoding" => "UTF-8",
             "verbosity" => "no_white_space",
             // See MDL-54868.
-            "escaping" => ["markup"]
+            "escaping" => ["markup"],
         ];
 
         return xmlrpc_encode_request(null, $fault, $encodingoptions);
