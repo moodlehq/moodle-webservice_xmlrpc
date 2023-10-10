@@ -87,7 +87,7 @@ class xmlrpc_server_test extends \advanced_testcase {
      *
      * @return array
      */
-    public function parse_request_provider() {
+    public static function parse_request_provider(): array {
         $xml = '<?xml version="1.0" encoding="UTF-8"?>';
 
         // This valid webservice call has one required param ('component'), and one optional param ('lang').
