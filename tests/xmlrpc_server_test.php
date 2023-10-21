@@ -59,7 +59,7 @@ class xmlrpc_server_test extends \advanced_testcase {
      * @param string $expectfunction    The expected value for the function after decoding the request
      * @param array  $expectparams      The expected value for the params after decoding the request
      */
-    public function test_parse_request($input, $expectfunction, $expectparams) {
+    public function test_parse_request($input, $expectfunction, $expectparams): void {
         $server = $this->getMockBuilder('\webservice_xmlrpc_server')
             ->onlyMethods(['fetch_input_content'])
             ->disableOriginalConstructor()

@@ -59,7 +59,7 @@ class lib_test extends \advanced_testcase {
     /**
      * Test for array response.
      */
-    public function test_client_with_array_response() {
+    public function test_client_with_array_response(): void {
         global $CFG;
 
         $client = new webservice_xmlrpc_client_mock('/webservice/xmlrpc/server.php', 'anytoken');
@@ -72,7 +72,7 @@ class lib_test extends \advanced_testcase {
     /**
      * Test for value response.
      */
-    public function test_client_with_value_response() {
+    public function test_client_with_value_response(): void {
         global $CFG;
 
         $client = new webservice_xmlrpc_client_mock('/webservice/xmlrpc/server.php', 'anytoken');
@@ -85,7 +85,7 @@ class lib_test extends \advanced_testcase {
     /**
      * Test for fault response.
      */
-    public function test_client_with_fault_response() {
+    public function test_client_with_fault_response(): void {
         global $CFG;
 
         $client = new webservice_xmlrpc_client_mock('/webservice/xmlrpc/server.php', 'anytoken');
@@ -98,7 +98,7 @@ class lib_test extends \advanced_testcase {
     /**
      * Test the XML-RPC request encoding.
      */
-    public function test_encode_request() {
+    public function test_encode_request(): void {
 
         $client = new webservice_xmlrpc_client_mock('/webservice/xmlrpc/server.php', 'anytoken');
 
@@ -123,7 +123,7 @@ class lib_test extends \advanced_testcase {
     /**
      * Test the XML-RPC response decoding
      */
-    public function test_decode_response() {
+    public function test_decode_response(): void {
         $client = new webservice_xmlrpc_client_mock('/webservice/xmlrpc/server.php', 'anytoken');
 
         $teststring = '<bar>Recherche thématique:Villes & Développement durable</bar>';

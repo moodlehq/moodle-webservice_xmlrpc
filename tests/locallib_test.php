@@ -62,7 +62,7 @@ class locallib_test extends \advanced_testcase {
      * @param string $returns       Webservice function description
      * @param string $expected      The expected XML-RPC response
      */
-    public function test_prepare_response($returnsdesc, $returns, $expected) {
+    public function test_prepare_response($returnsdesc, $returns, $expected): void {
         $server = $this->getMockBuilder('webservice_xmlrpc_server')
             ->disableOriginalConstructor()
             ->onlyMethods([])
@@ -105,7 +105,7 @@ class locallib_test extends \advanced_testcase {
      * @param string    $code      An error code to be provided to generate_error
      * @param string    $expected  The expected XML-RPC response
      */
-    public function test_generate_error($exception, $code, $expected) {
+    public function test_generate_error($exception, $code, $expected): void {
         $server = $this->getMockBuilder('webservice_xmlrpc_server')
             ->disableOriginalConstructor()
             ->onlyMethods([])
