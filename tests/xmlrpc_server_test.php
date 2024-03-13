@@ -40,7 +40,7 @@ require_once($CFG->dirroot . '/webservice/xmlrpc/locallib.php');
  *
  * @covers \webservice_xmlrpc_server
  */
-class xmlrpc_server_test extends \advanced_testcase {
+final class xmlrpc_server_test extends \advanced_testcase {
 
     /**
      * Setup.
