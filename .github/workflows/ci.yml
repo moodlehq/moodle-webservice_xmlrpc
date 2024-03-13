@@ -28,15 +28,15 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # Highest php versions supported by each branch (with master always being tested twice).
+          # Highest php versions supported by each branch (with main always being tested twice).
           - php: 8.2
-            moodle-branch: master
+            moodle-branch: main
             database: pgsql
             # The following line is only needed if you're going to run php8 jobs and your
             # plugin needs xmlrpc services.
             extensions: xmlrpc-beta
           - php: 8.2
-            moodle-branch: master
+            moodle-branch: main
             database: mariadb
             # The following line is only needed if you're going to run php8 jobs and your
             # plugin needs xmlrpc services.
@@ -60,15 +60,15 @@ jobs:
             # plugin needs xmlrpc services.
             extensions: xmlrpc-beta
 
-          # Lowest php versions supported by each branch (with master always being tested twice).
+          # Lowest php versions supported by each branch (with main always being tested twice).
           - php: 8.1
-            moodle-branch: master
+            moodle-branch: main
             database: pgsql
             # The following line is only needed if you're going to run php8 jobs and your
             # plugin needs xmlrpc services.
             extensions: xmlrpc-beta
           - php: 8.1
-            moodle-branch: master
+            moodle-branch: main
             database: mariadb
             # The following line is only needed if you're going to run php8 jobs and your
             # plugin needs xmlrpc services.
